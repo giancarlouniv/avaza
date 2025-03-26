@@ -16,8 +16,6 @@ export default function Timesheets() {
   // Users moved to environment variable
   const users = JSON.parse(process.env.NEXT_PUBLIC_USERS);
 
-  console.log('Raw NEXT_PUBLIC_USERS:', users);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       setDate(new Date());

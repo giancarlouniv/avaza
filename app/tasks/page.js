@@ -14,7 +14,7 @@ export default function Page() {
           method: "GET",
           headers: {
             "Accept": "application/problem+json",
-            "Authorization": "Bearer 897541-13d88c120c567266ce4c9f9c351426d1f9ae2b85"
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_AVAZA_TOKEN}`,
           }
         });
 
