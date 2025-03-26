@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useEffect } from "react";
+import he from "he";
 
 export default function Page() {
   const [data, setData] = useState(null);
@@ -84,7 +85,9 @@ export default function Page() {
                       <div className="flex justify-between text-black">
                         <div>
                           {task.Title}<br />
-                          <small className="text-blue-600 pe-3">{task.DescriptionNoHTML}</small><br />
+                          <small className="text-blue-600 pe-3">
+                            {he.decode(task.DescriptionNoHTML || "")}
+                          </small>
                           <small className="text-gray-600">Sezione: {task.SectionTitle}</small>
                         </div>
                         <div className="text-right">
