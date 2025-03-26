@@ -22,8 +22,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <nav className="fixed top-0 left-0 w-full flex justify-between p-4 bg-gray-800 text-white shadow-md z-50">
+          <a href="/" className="text-white hover:text-gray-200">
+            Home
+          </a>
+        </nav>
+
+        <main className="pt-16 bg-blue-50">{children}</main>
       </body>
     </html>
   );
 }
+

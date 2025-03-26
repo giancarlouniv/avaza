@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Cambia il colore della data attiva */
+.react-calendar__tile--active {
+  background-color: #EEF6FF!important;
+  color: blue!important;
+}
+
+.react-calendar {
+  padding: 20px!important;
+}
+
