@@ -133,20 +133,28 @@ export default function Timesheets() {
 
             return (
               <div key={user} className="p-4 border bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-100 transition-shadow">
-                <h2 className="text-xl font-semibold mb-3 dark:text-black">👤 {user}</h2>
+                <h2 className="text-xl font-semibold mb-8 text-black">👤 {user}</h2>
                 <div className="space-y-2">
                   {timesheets.map((item, index) => (
-                    <div key={index} className="p-3 dark:border-black border-b last:border-b-0 flex justify-between">
-                      <div>
-                        <p className="text-gray-600 text-sm">
-                        {item.Duration === 1 ? `⏳ ${item.Duration} ora | 📌 ${item.ProjectTitle}` : `⏳ ${item.Duration} ore | 📌 ${item.ProjectTitle}`}
+                    <div key={index} className="p-3 dark:text-gray-700 dark:border-black border-b last:border-b-0 flex justify-between">
 
+                      <div>
+                        <p className="text-lg mb-6 font-bold">📜 {item.ProjectTitle}</p>
+                        <p>
+                          <span className="pe-3">
+                            {parseFloat(item.Duration).toFixed(2) === "1.00" 
+                              ? `⏳ ${parseFloat(item.Duration).toFixed(2)} ora ` 
+                              : `⏳ ${parseFloat(item.Duration).toFixed(2)} ore`
+                            }
+                          </span> 
+                          🧾 {item.TaskTitle} 
                         </p>
-                        <p className="text-gray-500 text-xs mt-1 pe-2">
-                          {item.Notes && item.Notes !== "." ? `📄 ${item.Notes}` : " -- "}
+                        <p>
+                          {item.Notes && item.Notes !== "." ? `📄 ${item.Notes}` : " Nessuna nota "}
                         </p>
                       </div>
-                      <div className="text-right">
+
+                      <div className="text-right pt-5">
                         <p className="text-gray-800 text-sm mb-1">
                           {format(new Date(item.DateCreated), "HH:mm", { locale: it })} 🕒 
                         </p>
@@ -158,7 +166,7 @@ export default function Timesheets() {
                   ))}
                 </div>
                 <p className={`mt-3 font-bold text-end mt-8 ${isHoursLessThanExpected ? 'text-red-600 text-xl' : 'text-gray-700'}`}>
-                  🔹 Totale ore: {totalHours}h 
+                  🔹 Totale ore: {parseFloat(totalHours).toFixed(2)}h 
                 </p>
               </div>
             );
