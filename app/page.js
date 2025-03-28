@@ -21,6 +21,12 @@ export default function Home() {
         </Link>
       </main>
 
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <Link href="/users">
+          <span className="text-blue-500 hover:text-3xl transition-all duration-200 rounded-lg shadow-md border px-8 py-2">Utenti</span>
+        </Link>
+      </main>
+
     </div>
   );
 }
